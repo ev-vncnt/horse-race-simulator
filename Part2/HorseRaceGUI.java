@@ -33,7 +33,7 @@ public class HorseRaceGUI extends JFrame {
         
         // Initialize horse customization components
         horse1NameField = new JTextField("Axel", 10);
-        String[] horseIcons = {"🐎", "🐴", "🦄"}; // Example horse icons
+        String[] horseIcons = {"🐎", "🐴", "🦄"};
         horse1IconComboBox = new JComboBox<>(horseIcons);
         horse1ConfidenceSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
         
@@ -45,14 +45,10 @@ public class HorseRaceGUI extends JFrame {
         horse3IconComboBox = new JComboBox<>(horseIcons);
         horse3ConfidenceSlider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
 
-
-
         // Add event listeners to horse customization components
         horse1NameField.addActionListener(e -> updateHorse1Name());
         horse1IconComboBox.addActionListener(e -> updateHorse1Icon());
         horse1ConfidenceSlider.addChangeListener(e -> updateHorse1Confidence());
-        
-        // Add event listeners for Horse 2 and Horse 3 customization
         horse2NameField.addActionListener(e -> updateHorse2Name());
         horse2IconComboBox.addActionListener(e -> updateHorse2Icon());
         horse2ConfidenceSlider.addChangeListener(e -> updateHorse2Confidence());
@@ -69,7 +65,6 @@ public class HorseRaceGUI extends JFrame {
         customizationPanel.add(horse1IconComboBox);
         customizationPanel.add(new JLabel("Horse 1 Confidence:"));
         customizationPanel.add(horse1ConfidenceSlider);
-        add(customizationPanel, BorderLayout.NORTH);
         customizationPanel.add(new JLabel("Horse 2 Name:"));
         customizationPanel.add(horse2NameField);
         customizationPanel.add(new JLabel("Horse 2 Icon:"));
@@ -90,12 +85,11 @@ public class HorseRaceGUI extends JFrame {
         // Add the "Start Race" button to the GUI
         customizationPanel.add(startRaceButton);
 
-        setVisible(true);
-        
-        // Initialize horse object
-        horse1 = new Horse('A', "Axel", 0.5); // Initial values
+        add(customizationPanel, BorderLayout.NORTH);
 
-        // Initialize labels for horse customization
+        setVisible(true);
+    
+        horse1 = new Horse('A', "Axel", 0.5);
         horse1Label = new JLabel("Horse 1:");
         horse2Label = new JLabel("Horse 2:");
         horse3Label = new JLabel("Horse 3:");
@@ -123,8 +117,6 @@ public class HorseRaceGUI extends JFrame {
         customizationPanel.add(new JLabel("Name"));
         customizationPanel.add(new JLabel("Icon"));
         customizationPanel.add(startRaceButton);
-
-
     }
     
     private void updateHorse1Name() {
@@ -178,44 +170,38 @@ public class HorseRaceGUI extends JFrame {
 
     // Implement the action listener for the "Start Race" button
     private void startRace() {
-    // Disable customization components
-    horse1NameField.setEnabled(false);
-    horse1IconComboBox.setEnabled(false);
-    horse1ConfidenceSlider.setEnabled(false);
-    horse2NameField.setEnabled(false);
-    horse2IconComboBox.setEnabled(false);
-    horse2ConfidenceSlider.setEnabled(false);
-    horse3NameField.setEnabled(false);
-    horse3IconComboBox.setEnabled(false);
-    horse3ConfidenceSlider.setEnabled(false);
-    startRaceButton.setEnabled(false);
-    
-    // Create and customize the horses
-    Horse horse1 = new Horse(horse1IconComboBox.getSelectedItem().toString().charAt(0), horse1NameField.getText(), horse1ConfidenceSlider.getValue() / 100.0);
-    Horse horse2 = new Horse(horse2IconComboBox.getSelectedItem().toString().charAt(0), horse2NameField.getText(), horse2ConfidenceSlider.getValue() / 100.0);
-    Horse horse3 = new Horse(horse3IconComboBox.getSelectedItem().toString().charAt(0), horse3NameField.getText(), horse3ConfidenceSlider.getValue() / 100.0);
-    
-    // Create the race and add horses
-    Race race = new Race(15);
-    race.addHorse(horse1, 1);
-    race.addHorse(horse2, 2);
-    race.addHorse(horse3, 3);
-    
-    // Start the race
-    race.startRace();
-    
-    // Enable the "Start Race" button after the race is finished
-    startRaceButton.setEnabled(true);
-    
-    // Re-enable customization components
-    horse1NameField.setEnabled(true);
-    horse1IconComboBox.setEnabled(true);
-    horse1ConfidenceSlider.setEnabled(true);
-    horse2NameField.setEnabled(true);
-    horse2IconComboBox.setEnabled(true);
-    horse2ConfidenceSlider.setEnabled(true);
-    horse3NameField.setEnabled(true);
-    horse3IconComboBox.setEnabled(true);
-    horse3ConfidenceSlider.setEnabled(true);
-}
+        // Disable customization components
+        horse1NameField.setEnabled(false);
+        horse1IconComboBox.setEnabled(false);
+        horse1ConfidenceSlider.setEnabled(false);
+        horse2NameField.setEnabled(false);
+        horse2IconComboBox.setEnabled(false);
+        horse2ConfidenceSlider.setEnabled(false);
+        horse3NameField.setEnabled(false);
+        horse3IconComboBox.setEnabled(false);
+        horse3ConfidenceSlider.setEnabled(false);
+        startRaceButton.setEnabled(false);
+        
+        Horse horse1 = new Horse(horse1IconComboBox.getSelectedItem().toString().charAt(0), horse1NameField.getText(), horse1ConfidenceSlider.getValue() / 100.0);
+        Horse horse2 = new Horse(horse2IconComboBox.getSelectedItem().toString().charAt(0), horse2NameField.getText(), horse2ConfidenceSlider.getValue() / 100.0);
+        Horse horse3 = new Horse(horse3IconComboBox.getSelectedItem().toString().charAt(0), horse3NameField.getText(), horse3ConfidenceSlider.getValue() / 100.0);
+        
+        Race race = new Race(15);
+        race.addHorse(horse1, 1);
+        race.addHorse(horse2, 2);
+        race.addHorse(horse3, 3);
+        
+        race.startRace();
+        
+        startRaceButton.setEnabled(true);
+        horse1NameField.setEnabled(true);
+        horse1IconComboBox.setEnabled(true);
+        horse1ConfidenceSlider.setEnabled(true);
+        horse2NameField.setEnabled(true);
+        horse2IconComboBox.setEnabled(true);
+        horse2ConfidenceSlider.setEnabled(true);
+        horse3NameField.setEnabled(true);
+        horse3IconComboBox.setEnabled(true);
+        horse3ConfidenceSlider.setEnabled(true);
+    }
 }
