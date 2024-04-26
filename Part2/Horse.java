@@ -1,4 +1,4 @@
-package Part1;
+package Part2;
 /*
  * Write a description of class Horse here.
  * 
@@ -79,6 +79,11 @@ public class Horse
     public void setSymbol(char newSymbol)
     {
         this.horseSymbol = newSymbol;
+    }
+
+    public void setName(String newName)
+    {
+        this.horseName = newName;
     }
 
 

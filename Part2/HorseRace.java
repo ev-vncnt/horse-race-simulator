@@ -1,3 +1,4 @@
+package Part2;
 import java.util.Random;
 
 public class HorseRace {
