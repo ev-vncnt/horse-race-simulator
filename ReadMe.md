@@ -12,7 +12,7 @@ To run my game, the Java Development Kit (JDK) is required. This can be installe
 
 Clone my repository by running this command in your terminal:
 
-```git clone https://github.com/your-username/horse-racing-game.git```
+```git clone https://github.com/ev-vncnt/horse-race-simulator.git```
 
 Then, navigate to the main directory using: 
 
