@@ -42,7 +42,7 @@ The confidence level decides how likely a horse is to move forward or fall over,
 
 ## Credits
 
-Author: Noe Vincent
+Author: Eve Vincent
 
 GitHub Repo: [github.com/ev-vncnt/horse-race-simulator](https://github.com/ev-vncnt/horse-race-simulator)
 
